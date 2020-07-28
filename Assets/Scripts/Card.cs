@@ -17,6 +17,13 @@ public class Card : MonoBehaviour
         Gun = 8,
     }
 
+    public enum EStatus
+    {
+        Free = 1,
+        Player = 2,
+        Removed = 3,
+    }
+
     private static SOCardProperties _cardProperties;
 
     [SerializeField]
@@ -42,6 +49,15 @@ public class Card : MonoBehaviour
         get
         {
             return _type;
+        }
+    }
+
+    private EStatus _status;
+    public EStatus Status
+    {
+        get
+        {
+            return _status;
         }
     }
 
