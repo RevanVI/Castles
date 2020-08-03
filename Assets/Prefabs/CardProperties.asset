@@ -15,27 +15,78 @@ MonoBehaviour:
   CommonImage: {fileID: 0}
   BackImage: {fileID: 0}
   SpecialCards:
-  - Image: {fileID: 0}
-    Value: 0
+  - Image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    Value: -1
+    Type: 9
+  - Image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    Value: -2
+    Type: 9
+  - Image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    Value: -3
+    Type: 9
+  - Image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    Value: -4
+    Type: 9
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 7
+    Type: 8
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 16
+    Type: 8
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 36
+    Type: 8
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 5
     Type: 1
-  - Image: {fileID: 0}
-    Value: 0
-    Type: 0
-  - Image: {fileID: 0}
-    Value: 0
-    Type: 0
-  - Image: {fileID: 0}
-    Value: 0
-    Type: 0
-  - Image: {fileID: 0}
-    Value: 0
-    Type: 0
-  - Image: {fileID: 0}
-    Value: 0
-    Type: 0
-  - Image: {fileID: 0}
-    Value: 0
-    Type: 0
-  - Image: {fileID: 0}
-    Value: 0
-    Type: 0
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 11
+    Type: 1
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 26
+    Type: 1
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 46
+    Type: 1
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 3
+    Type: 2
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 9
+    Type: 2
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 19
+    Type: 2
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 39
+    Type: 2
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 43
+    Type: 2
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 13
+    Type: 4
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 23
+    Type: 4
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 33
+    Type: 4
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 17
+    Type: 5
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 27
+    Type: 5
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 37
+    Type: 5
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 54
+    Type: 6
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 21
+    Type: 7
+  - Image: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    Value: 31
+    Type: 3

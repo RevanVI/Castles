@@ -15,6 +15,7 @@ public class Card : MonoBehaviour
         King = 6,
         Queen = 7,
         Gun = 8,
+        Player = 9,
     }
 
     public enum EStatus
@@ -24,7 +25,8 @@ public class Card : MonoBehaviour
         Removed = 3,
     }
 
-    private static SOCardProperties _cardProperties;
+    [SerializeField]
+    private SOCardProperties _cardProperties;
 
     [SerializeField]
     private Sprite _image;
@@ -75,7 +77,20 @@ public class Card : MonoBehaviour
             _image = _cardProperties.CommonImage;
             _type = EType.Common;
         }
-        _value = value;
+        if (value < 0 && value > -5)
+            _value = 1;
+        else
+            _value = value;
+    }
+
+    public void SetDefaultBoardPlace(GameObject boardPlace)
+    {
+        _boardPlace = boardPlace;
+    }
+
+    public void MoveToDefaultBoardPlace()
+    {
+        transform.position = _boardPlace.transform.position;
     }
 
     // Start is called before the first frame update
