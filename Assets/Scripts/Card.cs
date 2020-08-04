@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Card : MonoBehaviour
         Removed = 3,
     }
 
+    private SpriteRenderer _spriteRenderer;
     [SerializeField]
     private SOCardProperties _cardProperties;
 
@@ -32,9 +34,15 @@ public class Card : MonoBehaviour
     private Sprite _image;
     [SerializeField]
     private Sprite _backImage;
-
+    [SerializeField]
+    private Text _valueText;
     [SerializeField]
     private GameObject _boardPlace;
+
+    private bool _isFaceDown = true;
+
+    [SerializeField]
+    private ProgressBar _progressBar;
 
     private int _value;
     public int Value
@@ -66,6 +74,8 @@ public class Card : MonoBehaviour
     public void SetData(int value)
     {
         _backImage = _cardProperties.BackImage;
+        _isFaceDown = true;
+        _spriteRenderer.sprite = _backImage;
         int index = _cardProperties.SpecialCards.IndexOf(new SOCardProperties.SpecialCardData(value));
         if (index != -1)
         {
@@ -81,6 +91,7 @@ public class Card : MonoBehaviour
             _value = 1;
         else
             _value = value;
+        _valueText.text = _value.ToString();
     }
 
     public void SetDefaultBoardPlace(GameObject boardPlace)
@@ -93,10 +104,42 @@ public class Card : MonoBehaviour
         transform.position = _boardPlace.transform.position;
     }
 
+    public void Flip()
+    {
+        if (_isFaceDown)
+        {
+            _spriteRenderer.sprite = _image;
+            gameObject.layer = 9;
+        }
+        else
+        {
+            _spriteRenderer.sprite = _backImage;
+            gameObject.layer = 8;
+        }
+        _isFaceDown = !_isFaceDown;
+    }
+
+    public void SetProgressValue(float val)
+    {
+        _progressBar.SetValue(val);
+    }
+
+    private void Awake()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _isFaceDown = true;
+        _backImage = _cardProperties.BackImage;
+        _spriteRenderer.sprite = _backImage;
+        _progressBar.SetMode(false);
+        _progressBar.SetMaxValue(1f);
+        _progressBar.SetValue(0f);
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame

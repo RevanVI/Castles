@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc826c507f96714cb0c633132b2f816, type: 3}
   m_Name: CardProperties
   m_EditorClassIdentifier: 
-  CommonImage: {fileID: 0}
-  BackImage: {fileID: 0}
+  CommonImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  BackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   SpecialCards:
   - Image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     Value: -1

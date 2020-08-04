@@ -12,7 +12,7 @@ public class SOCardProperties : ScriptableObject
     public List<SpecialCardData> SpecialCards;
 
     [System.Serializable]
-    public class SpecialCardData: System.IComparable
+    public class SpecialCardData: System.IComparable, System.IEquatable<SpecialCardData>
     {
         public Sprite Image;
         public int Value;
@@ -30,5 +30,14 @@ public class SOCardProperties : ScriptableObject
                 throw new System.Exception("object is not SpecialCardData class");
             return Value.CompareTo(other.Value);
         }
+
+        public bool Equals(SpecialCardData other)
+        {
+            if (other is null)
+                return false;
+
+            return Value == other.Value;
+        }
+
     }
 }
