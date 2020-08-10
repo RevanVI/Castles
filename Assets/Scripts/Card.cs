@@ -38,12 +38,14 @@ public class Card : MonoBehaviour
     private Text _valueText;
     [SerializeField]
     private GameObject _boardPlace;
-
+    [SerializeField]
+    private GameObject _defaultBoardPlace;
     private bool _isFaceDown = true;
 
     [SerializeField]
     private ProgressBar _progressBar;
 
+    [SerializeField]
     private int _value;
     public int Value
     {
@@ -94,12 +96,28 @@ public class Card : MonoBehaviour
         _valueText.text = _value.ToString();
     }
 
+    public void SetStatus(EStatus status, GameObject place)
+    {
+        _status = status;
+        if (status == EStatus.Free)
+        {
+            _boardPlace = _defaultBoardPlace;
+        }
+        else
+            _boardPlace = place;
+    }
+
     public void SetDefaultBoardPlace(GameObject boardPlace)
     {
-        _boardPlace = boardPlace;
+        _defaultBoardPlace = boardPlace;
     }
 
     public void MoveToDefaultBoardPlace()
+    {
+        transform.position = _defaultBoardPlace.transform.position;
+    }
+
+    public void MoveToBoardPlace()
     {
         transform.position = _boardPlace.transform.position;
     }

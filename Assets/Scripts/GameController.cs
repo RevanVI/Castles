@@ -14,7 +14,9 @@ public class GameController : MonoBehaviour
     private List<Card> _cards;
 
     [SerializeField]
-    private List<GameObject> _playerCards;
+    private List<PlayerController> _players;
+    [SerializeField]
+    private List<GameObject> _playerCardPlaces;
     [SerializeField]
     private GameObject _board;
     [SerializeField]
@@ -23,7 +25,7 @@ public class GameController : MonoBehaviour
     private GameObject _bin;
 
     private Card _activeCard = null;
-    private int _playerNoTurn = 1;
+    private int _playerNoTurn = 0;
 
     [SerializeField]
     private float _secsToTake = 1f;
@@ -66,7 +68,7 @@ public class GameController : MonoBehaviour
         {
             GameObject gameObject = Instantiate(_cardPrefab, _cardHandler.transform);
             Card newCard = gameObject.GetComponent<Card>();
-            newCard.SetDefaultBoardPlace(_playerCards[i]);
+            newCard.SetDefaultBoardPlace(_playerCardPlaces[i]);
             _cards.Add(newCard);
         }
     
@@ -74,6 +76,7 @@ public class GameController : MonoBehaviour
         for (int i = 1; i <= 4; ++i)
         {
             _cards[_cards.Count - 5 + i].SetData(-i);
+            _players[i - 1].InsertCard(_cards[_cards.Count - 5 + i]);
         }
 
         //build values array
@@ -134,15 +137,17 @@ public class GameController : MonoBehaviour
         //check availability
         Ray ray = Camera.main.ScreenPointToRay(data.StartPosition);
         RaycastHit2D hitInfo = Physics2D.Raycast(ray.origin, ray.direction, Camera.main.farClipPlane, LayerMask.GetMask("ActiveCard"));
-        Debug.Log($"ProcessHold Hit {hitInfo.collider != null}");
+        //Debug.Log($"ProcessHold Hit {hitInfo.collider != null}");
         if (hitInfo.collider != null)
         {
             Card card = hitInfo.collider.gameObject.GetComponent<Card>();
             card.SetProgressValue(Mathf.Clamp01(data.Time / _secsToTake));
-            Debug.Log($"On card click {card.gameObject.name}");
+            //Debug.Log($"On card click {card.gameObject.name}");
             if (data.Time > _secsToTake)
             {
-                card.Flip();
+                Debug.Log($"Hold ended {card.gameObject.name}");
+                _players[_playerNoTurn].InsertCard(card);
+                //card.Flip();
                 _activeCard = null;
                 EndTurn();
             }
